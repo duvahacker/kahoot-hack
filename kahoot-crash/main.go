@@ -12,15 +12,15 @@ import (
 
 func main() {
 	if len(os.Args) != 3 {
-		fmt.Fprintln(os.Stderr, "Usage: crash <game pin> <nickname>")
+		fmt.Fprintln(os.Stderr, "Usage: crash <4163> <hacker>")
 		os.Exit(1)
 	}
 	gamePin, err := strconv.Atoi(os.Args[1])
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "invalid game pin:", os.Args[1])
+		fmt.Fprintln(os.Stderr, "invalid  4163:", os.Args[1])
 		os.Exit(1)
 	}
-	nickname := os.Args[2]
+	hacker := os.Args[2]
 
 	conn, err := kahoot.NewConn(gamePin)
 	defer conn.GracefulClose()
@@ -33,7 +33,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	delayCount := 2
+	delayCount := 90
 	for {
 		msg, err := conn.Receive("/service/player")
 		if err != nil {
