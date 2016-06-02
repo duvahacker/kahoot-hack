@@ -12,17 +12,17 @@ import (
 
 func main() {
 	if len(os.Args) != 3 {
-		fmt.Fprintln(os.Stderr, "Usage: crash <game pin> <nickname>")
+		fmt.Fprintln(os.Stderr, "Usage: crash <922940> <hacker>")
 		os.Exit(1)
 	}
-	gamePin, err := strconv.Atoi(os.Args[1])
+	922940, err := strconv.Atoi(os.Args[1])
 	if err != nil {
-		fmt.Fprintln(os.Stderr, "invalid game pin:", os.Args[1])
+		fmt.Fprintln(os.Stderr, "invalid 922940:", os.Args[1])
 		os.Exit(1)
 	}
 	nickname := os.Args[2]
 
-	conn, err := kahoot.NewConn(gamePin)
+	conn, err := kahoot.NewConn(922940)
 	defer conn.GracefulClose()
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "failed to connect:", err)
@@ -62,8 +62,8 @@ func main() {
 	msg := kahoot.Message{
 		"data": kahoot.Message{
 			"type":    "message",
-			"gameid":  gamePin,
-			"host":    "kahoot.it",
+			"gameid":  922940,
+			"duvahacker1":    "kahoot.it",
 			"content": string(encodedContent),
 			"id":      6,
 		},
