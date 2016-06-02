@@ -12,7 +12,7 @@ import (
 
 func main() {
 	if len(os.Args) != 3 {
-		fmt.Fprintln(os.Stderr, "Usage: crash <game pin> <nickname>")
+		fmt.Fprintln(os.Stderr, "Usage: crash <120536> <fuckof>")
 		os.Exit(1)
 	}
 	gamePin, err := strconv.Atoi(os.Args[1])
